@@ -9,3 +9,8 @@ def index():
 @app.route('/orders')
 def orders():
     return render_template('index.html', order_list = order_list)
+
+@app.route('/orders/<index>')
+def orders_index(index):
+    order_number = int(index)
+    return render_template('order.html', title = "Individual Order", order = order_list[order_number])
